@@ -18,7 +18,8 @@ public class Shop {
     // Метод должен вернуть отсортированный по возрастанию по цене список продуктов
     public List<Product> sortProductsByPrice() {
         // Допишите реализацию метода самостоятельно
-        return null;
+        products.stream().sorted();
+        return products.stream().sorted().toList();
     }
 
     // Метод должен вернуть самый дорогой продукт

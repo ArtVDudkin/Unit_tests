@@ -53,6 +53,12 @@ public class CalculatorTest {
         System.out.println(Calculator.calculation(2_147_483_647, 1, '+')); // integer overflow
         System.out.println(Calculator.squareRootExtraction(169));
 
+
+        // Проверка метода calculateDiscount с использованием утверждений AssertJ
+        System.out.println(Calculator.calculatingDiscount(100, 15));
+        assertThat(Calculator.calculatingDiscount(100, 15)).isEqualTo(85);
+        assertThat(Calculator.calculatingDiscount(100, 25)).isNotEqualTo(85);
+
         // Примерные решения домашних заданий из 1 лекции:
 
         // HW1.1: Придумайте и опишите (можно в псевдокоде) функцию извлечения корня и

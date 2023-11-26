@@ -20,7 +20,7 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.24.2</version> <!-- Укажите актуальную версию AssertJ -->
+            <version>3.21.0</version> <!-- Укажите актуальную версию AssertJ -->
             <scope>test</scope>
         </dependency>
 
@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
-            <version>5.9.2</version> <!-- Укажите актуальную версию JUnit Jupiter Params -->
+            <version>5.8.0</version> <!-- Укажите актуальную версию JUnit Jupiter Params -->
             <scope>test</scope>
         </dependency>
 
@@ -48,38 +48,46 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.2</version> <!-- Укажите актуальную версию JUnit Jupiter -->
+            <version>5.8.0</version> <!-- Укажите актуальную версию JUnit Jupiter -->
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>5.2.0</version> <!-- Укажите актуальную версию Mockito -->
+            <version>3.12.4</version> <!-- Укажите актуальную версию Mockito -->
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.8.1</version> <!-- Замените на актуальную версию Selenium WebDriver -->
+            <version>3.141.59</version> <!-- Замените на актуальную версию Selenium WebDriver -->
         </dependency>
 
 
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>org.jacoco.core</artifactId>
-            <version>0.8.8</version> <!-- Укажите актуальную версию JaCoCo -->
+            <version>0.8.7</version> <!-- Укажите актуальную версию JaCoCo -->
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.8.0</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.24.2</version>
+            <version>3.21.0</version>
             <scope>compile</scope>
         </dependency>
 
     </dependencies>
+
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
