@@ -58,6 +58,10 @@ public class CalculatorTest {
         System.out.println(Calculator.calculatingDiscount(100, 15));
         assertThat(Calculator.calculatingDiscount(100, 15)).isEqualTo(85);
         assertThat(Calculator.calculatingDiscount(100, 25)).isNotEqualTo(85);
+        assertThatThrownBy(() -> {
+            Calculator.calculatingDiscount(100, -25);
+        }).isInstanceOf(ArithmeticException.class)
+                .hasMessage("Incorrect value of parameters");
 
         // Примерные решения домашних заданий из 1 лекции:
 
