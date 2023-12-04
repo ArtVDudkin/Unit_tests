@@ -37,26 +37,30 @@ class UserRepositoryTest {
         int countSimpleUser = 0;
         int countAdmin = 0;
         for (User user : userRepo.data) {
-            if(user.isAdmin) {
-                countAdmin++;
-            } else {
-                countSimpleUser++;
+            if(user.isAuthenticate) {
+                if(user.isAdmin) {
+                    countAdmin++;
+                } else {
+                    countSimpleUser++;
+                }
             }
         }
 
         // Убеждемся, что в исходном репозитории есть три обычных пользователя и два админа
         assertEquals(3, countSimpleUser, "В репозитории осталось количество пользователей, отличное от 3");
         assertEquals(2, countAdmin, "В репозитории осталось количество администраторов, отличное от 2");
-        // Разлогиниваем всех пользователей, кроме администраторов, и обнуляем счетчики
+        // Разлогиниваем всех пользователей, кроме администраторов, обнуляем счетчики и считаем, сколько осталось пользователей и админов
         userRepo.logoutAllUsers();
         countSimpleUser = 0;
         countAdmin = 0;
-        if(userRepo.data.size() != 0) {
+        if(userRepo.data.size() > 0) {
             for (User user : userRepo.data) {
-                if(user.isAdmin) {
-                    countAdmin++;
-                } else {
-                    countSimpleUser++;
+                if(user.isAuthenticate) {
+                    if(user.isAdmin) {
+                        countAdmin++;
+                    } else {
+                        countSimpleUser++;
+                    }
                 }
             }
         }

@@ -40,10 +40,11 @@ public class UserRepository {
      * Метод разлогинивает всех всех пользователей, кроме администраторов
      */
     public void logoutAllUsers() {
-        for (User user : data) {
-            if(!user.isAdmin) {
-                user.isAuthenticate = false;
-                removeUser(user);
+        if(data.size() > 0) {
+            for (User user : data) {
+                if (!user.isAdmin) {
+                    user.isAuthenticate = false;
+                }
             }
         }
     }
