@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserRepositoryTest {
@@ -16,6 +18,7 @@ class UserRepositoryTest {
      */
     @BeforeEach
     void setUp() {
+        userRepo.data.clear();
         userRepo.addUser(new User("Andrey","123",false));
         userRepo.addUser(new User("Boris","1234",false));
         userRepo.addUser(new User("Vladimir","12345",true));
@@ -40,6 +43,7 @@ class UserRepositoryTest {
                 countSimpleUser++;
             }
         }
+
         // Убеждемся, что в исходном репозитории есть три обычных пользователя и два админа
         assertEquals(3, countSimpleUser, "В репозитории осталось количество пользователей, отличное от 3");
         assertEquals(2, countAdmin, "В репозитории осталось количество администраторов, отличное от 2");
@@ -47,13 +51,16 @@ class UserRepositoryTest {
         userRepo.logoutAllUsers();
         countSimpleUser = 0;
         countAdmin = 0;
-        for (User user : userRepo.data) {
-            if(user.isAdmin) {
-                countAdmin++;
-            } else {
-                countSimpleUser++;
+        if(userRepo.data.size() != 0) {
+            for (User user : userRepo.data) {
+                if(user.isAdmin) {
+                    countAdmin++;
+                } else {
+                    countSimpleUser++;
+                }
             }
         }
+
         // Убеждемся, что в исходном репозитории остались только два админа
         assertEquals(0, countSimpleUser, "В репозитории осталось количество пользователей, отличное от 0");
         assertEquals(2, countAdmin, "В репозитории осталось количество администраторов, отличное от 2");
