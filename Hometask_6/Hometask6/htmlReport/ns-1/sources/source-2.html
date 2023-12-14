@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ListIntegerGenerator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ru.geekbrains.hometask6</a>
+</div>
+
+<h1>Coverage Summary for Class: ListIntegerGenerator (ru.geekbrains.hometask6)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ListIntegerGenerator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (2/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    77,8%
+  </span>
+  <span class="absValue">
+    (7/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ru.geekbrains.hometask6;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Random;
+&nbsp;
+&nbsp;/**
+&nbsp; * Класс служит для создания и заполнения списка случайными целыми числами
+&nbsp; */
+&nbsp;public class ListIntegerGenerator {
+&nbsp;
+&nbsp;    private List&lt;Integer&gt; numList;
+&nbsp;    private Random rand;
+&nbsp;
+<b class="fc">&nbsp;    public ListIntegerGenerator() {</b>
+<b class="fc">&nbsp;        this.numList = new ArrayList&lt;&gt;();</b>
+<b class="fc">&nbsp;        this.rand = new Random();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;Integer&gt; getNumList() {
+<b class="nc">&nbsp;        return numList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Метод служит для заполнения списка случайными целыми числами в диапазоне от min до max
+&nbsp;     * @param amount требуемое количество чисел, которое должен содержать список
+&nbsp;     * @param min минимальное значение чисел в списке
+&nbsp;     * @param max максимальное значение чисел в списке
+&nbsp;     */
+&nbsp;    public List&lt;Integer&gt; generate(int amount, int min, int max) {
+<b class="fc">&nbsp;        numList.clear();</b>
+<b class="fc">&nbsp;        for(int i = 0; i &lt; amount; i++) {</b>
+<b class="fc">&nbsp;            numList.add(rand.nextInt(max - min + 1) + min);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return numList;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Метод служит для очистки списка для его повторного использования
+&nbsp;     */
+&nbsp;    public void clear() {
+<b class="nc">&nbsp;        numList.clear();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-14 22:36</div>
+</div>
+</body>
+</html>

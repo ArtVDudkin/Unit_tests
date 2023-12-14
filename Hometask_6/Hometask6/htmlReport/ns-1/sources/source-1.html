@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ListAvgComparator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">ru.geekbrains.hometask6</a>
+</div>
+
+<h1>Coverage Summary for Class: ListAvgComparator (ru.geekbrains.hometask6)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ListAvgComparator</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    78,3%
+  </span>
+  <span class="absValue">
+    (18/23)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package ru.geekbrains.hometask6;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Класс предназначен для получения среднего значения чисел в списке и средних сравнения значений двух списков
+&nbsp; */
+&nbsp;public class ListAvgComparator {
+&nbsp;
+&nbsp;    private double avgList1;
+&nbsp;    private double avgList2;
+&nbsp;
+<b class="fc">&nbsp;    public ListAvgComparator(List&lt;Integer&gt; numList1, List&lt;Integer&gt; numList2) {</b>
+<b class="fc">&nbsp;        this.avgList1 = calcAverage(numList1);</b>
+<b class="fc">&nbsp;        this.avgList2 = calcAverage(numList2);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public double getAvgList1() {
+<b class="fc">&nbsp;        return avgList1;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public double getAvgList2() {
+<b class="fc">&nbsp;        return avgList2;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Метод служит для расчета среднего значения всех чисел в списке
+&nbsp;     * @param numList список целых чисел
+&nbsp;     * @return возвращает среднее арифметическое значение всех чисел в списке
+&nbsp;     */
+&nbsp;    public static double calcAverage(List&lt;Integer&gt; numList) {
+<b class="fc">&nbsp;        int sum = 0;</b>
+<b class="fc">&nbsp;        double result = 0;</b>
+<b class="fc">&nbsp;        for (Integer num : numList) {</b>
+<b class="fc">&nbsp;            sum += num;</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        result = (double)sum / numList.size();</b>
+<b class="fc">&nbsp;        return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Метод служит для сревнения двух вещественных чисел
+&nbsp;     * @return возвращает 1, если среднее значение чисел в списке 1 больше, чем среднее значение чисел в списке 2
+&nbsp;     *         возвращает 2, если среднее значение чисел в списке 2 больше, чем среднее значение чисел в списке 1
+&nbsp;     *         возвращает 0, если средние значения чисел в обоих списках равны
+&nbsp;     */
+&nbsp;    public static int compare(double avgList1, double avgList2) {
+<b class="fc">&nbsp;        if(avgList1 &gt; avgList2) {return 1;}</b>
+<b class="fc">&nbsp;        if(avgList1 &lt; avgList2) {return 2;}</b>
+<b class="nc">&nbsp;        return 0;   // if(avgList1 == avgList2)</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Метод служит для интерпретации и отображения результатов сревнения средних значений в двух списках в требуемом виде
+&nbsp;     */
+&nbsp;    public void viewComparison(double avgList1, double avgList2) {
+<b class="fc">&nbsp;        switch (compare(avgList1, avgList2)) {</b>
+&nbsp;            case 0: {
+<b class="nc">&nbsp;                System.out.println(&quot;Средние значения равны&quot;);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case 1: {
+<b class="nc">&nbsp;                System.out.println(&quot;Первый список имеет большее среднее значение&quot;);</b>
+<b class="nc">&nbsp;                break;</b>
+&nbsp;            }
+&nbsp;            case 2: {
+<b class="fc">&nbsp;                System.out.println(&quot;Второй список имеет большее среднее значение&quot;);</b>
+&nbsp;                break;
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Метод служит для отображения величин средних значений в двух списках
+&nbsp;     */
+&nbsp;    public void showAverage() {
+<b class="fc">&nbsp;        System.out.println(&quot;Среднее значение первого списка: &quot; + avgList1);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;Среднее значение второго списка: &quot; + avgList2);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-14 22:36</div>
+</div>
+</body>
+</html>

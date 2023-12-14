@@ -35,30 +35,17 @@ class ListAvgComparatorTest {
         assertEquals(avg, res);
     }
 
-    @ParameterizedTest
-    @ValueSource(doubles = { 3.5, 4.2, 6.7 })
+    @Test
     @DisplayName("Проверка метода сравнения чисел, все числа больше заданного")
-    public void compareMore(double value) {
+    public void compare() {
+        double value1 = 3.5;
         double value2 = 2.5;
-        int res = listAvgComparator.compare(value, value2);
-        assertEquals(1, res, "Число должны быть больше заданного");
-    }
-    @ParameterizedTest
-    @ValueSource(doubles = { 0.5, 1.2, 1.7 })
-    @DisplayName("Проверка метода сравнения чисел, все числа меньше заданного")
-    public void compareLess(double value) {
-        double value2 = 2.5;
-        int res = listAvgComparator.compare(value, value2);
-        assertEquals(2, res, "Число должны быть меньше заданного");
-    }
-
-    @ParameterizedTest
-    @ValueSource(doubles = { 2.5 })
-    @DisplayName("Проверка метода сравнения чисел, два числа равны")
-    public void compareEqual(double value) {
-        double value2 = 2.5;
-        int res = listAvgComparator.compare(value, value2);
-        assertEquals(0, res, "Два числа должны быть равны");
+        int res = listAvgComparator.compare(value1, value2);
+        assertEquals(1, res, "Число должно быть больше заданного");
+        res = listAvgComparator.compare(value2, value1);
+        assertEquals(2, res, "Число должно быть меньше заданного");
+        res = listAvgComparator.compare(value1, value1);
+        assertEquals(0, res, "Числа должны быть равны");
     }
 
     @Test
