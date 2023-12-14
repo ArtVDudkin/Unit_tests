@@ -15,12 +15,20 @@ public class ListAvgComparator {
         this.avgList2 = calcAverage(numList2);
     }
 
+    public double getAvgList1() {
+        return avgList1;
+    }
+
+    public double getAvgList2() {
+        return avgList2;
+    }
+
     /**
      * Метод служит для расчета среднего значения всех чисел в списке
      * @param numList список целых чисел
      * @return возвращает среднее арифметическое значение всех чисел в списке
      */
-    public double calcAverage(List<Integer> numList) {
+    public static double calcAverage(List<Integer> numList) {
         int sum = 0;
         double result = 0;
         for (Integer num : numList) {
@@ -36,7 +44,7 @@ public class ListAvgComparator {
      *         возвращает 2, если среднее значение чисел в списке 2 больше, чем среднее значение чисел в списке 1
      *         возвращает 0, если средние значения чисел в обоих списках равны
      */
-    public int compare() {
+    public static int compare(double avgList1, double avgList2) {
         if(avgList1 > avgList2) {return 1;}
         if(avgList1 < avgList2) {return 2;}
         return 0;   // if(avgList1 == avgList2)
@@ -45,8 +53,8 @@ public class ListAvgComparator {
     /**
      * Метод служит для интерпретации и отображения результатов сревнения средних значений в двух списках в требуемом виде
      */
-    public void viewComparison() {
-        switch (compare()) {
+    public void viewComparison(double avgList1, double avgList2) {
+        switch (compare(avgList1, avgList2)) {
             case 0: {
                 System.out.println("Средние значения равны");
                 break;

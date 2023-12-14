@@ -13,7 +13,7 @@ public class Program {
 
         ListAvgComparator avgComparator = new ListAvgComparator(list1, list2);
         avgComparator.showAverage();
-        avgComparator.viewComparison();
+        avgComparator.viewComparison(avgComparator.getAvgList1(), avgComparator.getAvgList2());
     }
 
 }
