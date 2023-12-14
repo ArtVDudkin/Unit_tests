@@ -5,8 +5,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 import static org.mockito.Mockito.*;
@@ -56,6 +54,12 @@ class ListAvgComparatorTest {
         listAvgComparator.viewComparison(value1, value2);
         // Убеждаемся, что метод viewComparison() был вызван 1 раз
         verify(listAvgComparator, times(1)).viewComparison(value1, value2);
+        listAvgComparator.viewComparison(value2, value1);
+        // Убеждаемся, что метод viewComparison() был вызван 1 раз
+        verify(listAvgComparator, times(1)).viewComparison(value2, value1);
+        listAvgComparator.viewComparison(value1, value1);
+        // Убеждаемся, что метод viewComparison() был вызван 1 раз
+        verify(listAvgComparator, times(1)).viewComparison(value1, value1);
     }
 
     @Test

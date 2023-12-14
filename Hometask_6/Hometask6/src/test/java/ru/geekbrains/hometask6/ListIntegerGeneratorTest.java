@@ -32,8 +32,9 @@ class ListIntegerGeneratorTest {
         // Создаем список случайных целых чисел
         listIntegerGenerator.generate(20, 1, 10);
         // Убеждаемся, что полученный список является сущностью типа List<Integer>
-        List<Integer> res = listIntegerGenerator.getNumList();
-        assertTrue(res instanceof List<Integer>);
+        assertTrue(listIntegerGenerator.getNumList() instanceof List<Integer>);
+        // Убеждаемся, что список не пустой
+        assertNotNull(listIntegerGenerator.getNumList());
     }
 
     @Test
@@ -41,7 +42,7 @@ class ListIntegerGeneratorTest {
     void generate() {
         // Создаем список случайных целых чисел
         listIntegerGenerator.generate(20, 1, 10);
-        // Убеждаемся, что список не пустой и содержит 20 значений
+        // Убеждаемся, что список не пустой
         assertNotNull(listIntegerGenerator.getNumList());
         // Убеждаемся, что полученный список является сущностью типа List<Integer>
         assertTrue(listIntegerGenerator.getNumList() instanceof List<Integer>);
